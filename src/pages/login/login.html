@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Class App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div text-center>
+    <img src="img/java-institute-squarelogo-1468923556656.png">
+  </div>
+  <ion-list>
+    <form #f="ngForm" (ngSubmit)="Login(f)">
+      <ion-item>
+        <ion-label floating>Username(NIC)</ion-label>
+        <ion-input type="text" name="username" ngModel required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" name="password" ngModel required></ion-input>
+      </ion-item>
+      <button ion-button (click)="gotoSignUp()" type="button">Sign Up</button>
+      <button ion-button type="submit" [disabled]="!f.valid">Login</button>
+    </form>
+       
+  </ion-list>
+</ion-content>

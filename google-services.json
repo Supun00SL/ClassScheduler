@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "658187799182",
+    "firebase_url": "https://myclassapp-fec52.firebaseio.com",
+    "project_id": "myclassapp-fec52",
+    "storage_bucket": "myclassapp-fec52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658187799182:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658187799182-4qm9qfregvbafm2qqg98h4uuf6gdgi8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkqsflpKrUDGoivI73Lw7vzOsyQrC6F8s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

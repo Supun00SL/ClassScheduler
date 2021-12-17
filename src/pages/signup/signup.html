@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <form [formGroup]="myForm">
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" name="fname" required [(ngModel)]="formdata.fname" formControlName="fname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" name="lname" required [(ngModel)]="formdata.lname" formControlName="lname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>NIC</ion-label>
+        <ion-input type="text" name="nic" required [(ngModel)]="formdata.nic" formControlName="nic"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" name="email" required [(ngModel)]="formdata.email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Mobile</ion-label>
+        <ion-input type="text" name="mobile" required [(ngModel)]="formdata.mobile" formControlName="mobile"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Telephone</ion-label>
+        <ion-input type="text" name="telephone" [(ngModel)]="formdata.telephone" formControlName="telephone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" name="password" required [(ngModel)]="formdata.password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Re Enter Password</ion-label>
+        <ion-input type="password" name="reenterpassword" required [(ngModel)]="formdata.reenterpassword" formControlName="reenterpassword"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.controls.reenterpassword.valid && (submitAttempt)">
+        <label class="assertive">Please enter a valid Confirm Password.</label>
+      </ion-item>
+
+      <button ion-button type="submit" (click)="SignUp()">Signup</button>
+    </form>
+  </ion-list>    
+</ion-content>

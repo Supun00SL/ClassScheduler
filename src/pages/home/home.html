@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <h5>
+    <ion-icon name="calendar"></ion-icon> My Class Shedule</h5>
+  <p class="desc">This is Your Class Shedule for Ongoing Month. For Next Month Lectures please visit 'Future Lectures Page'.</p>
+  <div>
+    <!--calender-->
+    <!--  -->
+    <div class="month" id="month" [innerHtml]="mon" text-center>
+
+    </div>
+    <ul class="weekdays">
+      <li>Su</li>
+      <li>Mo</li>
+      <li>Tu</li>
+      <li>We</li>
+      <li>Th</li>
+      <li>Fr</li>
+      <li>Sa</li>
+
+    </ul>
+
+    <ul class="days" id="days">
+      <li *ngFor="let data of sqlcaldata">
+        <p *ngIf="data.type ==='normal'"> {{data.day}}</p>
+        <p *ngIf="data.type !=='normal'" class="activeday" (click)="presentPopover($event,data)"> {{data.day}}</p>
+      </li>
+    </ul>
+
+  </div>
+  <div>
+    <br>
+    <hr>
+    <h6>Future Classes</h6>
+    <div *ngIf="futurelength ==='found'" class="timeline">
+      <!-- Timeline item -->
+      <div *ngFor="let data of futurecalclassdata" class="timeline-item">
+        <div class="timeline-item-date"> {{data.day}} <small> {{data.month}} </small></div>
+        <div class="timeline-item-divider"></div>
+        <div class="timeline-item-content">
+          <div class="timeline-item-time timecolor"> {{data.starttime}} </div>
+          <div class="timeline-item-text">{{data.description}}</div>
+          <div class="timeline-item-time timecolor">{{data.endtime}}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="futurelength ==='no'">
+      <p>No classes Sheduled</p>
+    </div>
+  </div>
+  <hr>
+
+  <h5>
+    <ion-icon name="calendar"></ion-icon> My Exam Shedule</h5>
+  <div>
+
+    <!--calender-->
+    <div class="exammonth" id="exammonth" [innerHtml]="mon" text-center>
+    </div>
+    <ul class="weekdays">
+      <li>Su</li>
+      <li>Mo</li>
+      <li>Tu</li>
+      <li>We</li>
+      <li>Th</li>
+      <li>Fr</li>
+      <li>Sa</li>
+
+    </ul>
+
+    <ul class="days" id="examdays">
+      <li *ngFor="let data of sqlexamdata">
+        <p *ngIf="data.type ==='normal'"> {{data.day}}</p>
+        <p *ngIf="data.type !=='normal'" class="activeexamday" (click)="presentPopoverexam($event,data)"> {{data.day}}</p>
+      </li>
+    </ul>
+
+  </div>
+  <div>
+    <br>
+    <hr>
+    <h6>Future Exams</h6>
+    <div *ngIf="futureexamlength ==='found'" class="timeline">
+      <!-- Timeline item -->
+      <div *ngFor="let data of futurecalexamdata" class="timeline-item">
+        <div class="timeline-item-date"> {{data.day}} <small> {{data.month}} </small></div>
+        <div class="timeline-item-divider"></div>
+        <div class="timeline-item-content">
+          <div class="timeline-item-time timecolor"> {{data.starttime}} </div>
+          <div class="timeline-item-text">{{data.description}}</div>
+          <div class="timeline-item-time timecolor">{{data.endtime}}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="futureexamlength ==='no'">
+      <p>No classes Sheduled</p>
+    </div>
+  </div>
+</ion-content>
